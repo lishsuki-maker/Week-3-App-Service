@@ -67,7 +67,7 @@ jobs:
       aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
 
   deploy-prod:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment: production
