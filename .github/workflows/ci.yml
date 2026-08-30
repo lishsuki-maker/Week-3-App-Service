@@ -29,6 +29,7 @@ jobs:
   deploy-dev:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
     uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
     with:
       environment: dev
@@ -38,6 +39,7 @@ jobs:
   deploy-qa:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/qa'
+    runs-on: ubuntu-latest
     uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
     with:
       environment: qa
@@ -47,6 +49,7 @@ jobs:
   deploy-uat:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/uat'
+    runs-on: ubuntu-latest
     uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
     with:
       environment: uat
@@ -56,6 +59,7 @@ jobs:
   deploy-preprod:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/preprod'
+    runs-on: ubuntu-latest
     uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
     with:
       environment: preprod
@@ -65,6 +69,7 @@ jobs:
   deploy-prod:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
     environment: production
     uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
     with:
