@@ -30,50 +30,54 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
-    with:
-      environment: dev
-    secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
+    steps:
+      - name: Call reusable workflow
+        uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+        with:
+          environment: dev
+          aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
 
   deploy-qa:
     runs-on: ubuntu-latest
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/qa'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
-    with:
-      environment: qa
-    secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
+    steps:
+      - name: Call reusable workflow
+        uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+        with:
+          environment: qa
+          aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
 
   deploy-uat:
     runs-on: ubuntu-latest
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/uat'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
-    with:
-      environment: uat
-    secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
+    steps:
+      - name: Call reusable workflow
+        uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+        with:
+          environment: uat
+          aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
 
   deploy-preprod:
     runs-on: ubuntu-latest
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/preprod'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
-    with:
-      environment: preprod
-    secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
+    steps:
+      - name: Call reusable workflow
+        uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+        with:
+          environment: preprod
+          aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
 
   deploy-prod:
     runs-on: ubuntu-latest
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment: production
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
-    with:
-      environment: prod
-    secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
-# trigger
+    steps:
+      - name: Call reusable workflow
+        uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+        with:
+          environment: prod
+          aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
