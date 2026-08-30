@@ -1,4 +1,5 @@
 .PHONY: build test image deploy
+TAG ?= latest
 build:
 	docker build -t app-service .
 test: build
