@@ -73,4 +73,4 @@ jobs:
     with:
       environment: prod
     secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }
+      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
