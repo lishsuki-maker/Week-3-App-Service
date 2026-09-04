@@ -8,8 +8,7 @@ build:
 test: build
 	docker rm -f test 2>/dev/null || true
 	docker run -d --name test -p 8080:8080 app-service:$(TAG)
-	sleep 5
-	curl --fail http://127.0.0.1:8080/healthz
+	curl --fail --retry 10 --retry-delay 5 --retry-all-errors http://127.0.0.1:8080/healthz
 	docker rm -f test
 
 image:

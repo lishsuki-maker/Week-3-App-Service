@@ -33,7 +33,7 @@ jobs:
   deploy-dev:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+    uses: lishsuki-maker/Week-3-GH-SharedRepo/.github/workflows/deploy.yml@main
     with:
       environment: dev
     secrets:
@@ -42,7 +42,7 @@ jobs:
   deploy-qa:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/qa'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+    uses: lishsuki-maker/Week-3-GH-SharedRepo/.github/workflows/deploy.yml@main
     with:
       environment: qa
     secrets:
@@ -51,7 +51,7 @@ jobs:
   deploy-uat:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/uat'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+    uses: lishsuki-maker/Week-3-GH-SharedRepo/.github/workflows/deploy.yml@main
     with:
       environment: uat
     secrets:
@@ -60,7 +60,7 @@ jobs:
   deploy-preprod:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/preprod'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+    uses: lishsuki-maker/Week-3-GH-SharedRepo/.github/workflows/deploy.yml@main
     with:
       environment: preprod
     secrets:
@@ -69,7 +69,7 @@ jobs:
   deploy-prod:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    uses: lishsuki-maker/gh-sharedrepo/.github/workflows/deploy.yml@main
+    uses: lishsuki-maker/Week-3-GH-SharedRepo/.github/workflows/deploy.yml@main
     with:
       environment: prod
     secrets:
